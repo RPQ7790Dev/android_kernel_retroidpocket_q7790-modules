@@ -1,13 +1,13 @@
 load("//build/kernel/kleaf:kernel.bzl", "ddk_module")
 load("//build/bazel_common_rules/dist:dist.bzl", "copy_to_dist_dir")
-load("//vendor/qcom/kernel:target_variants.bzl", "get_all_variants")
+load("//vendor/retroidpocket/kernel:target_variants.bzl", "get_all_variants")
 load(":project_defconfig.bzl", "get_project_defconfig")
 
 def _define_module(target, variant):
     tv = "{}_{}".format(target, variant)
     deps = [
         ":camera_headers",
-        "//vendor/qcom/kernel:all_headers",
+        "//vendor/retroidpocket/kernel:all_headers",
     ]
 
     # Generate the defconfig file dynamically
@@ -25,23 +25,23 @@ def _define_module(target, variant):
 
     if target == "pineapple":
         deps.extend([
-            "//vendor/qcom/sm8750-modules/qcom/opensource/synx-kernel:synx_headers",
-            "//vendor/qcom/sm8750-modules/qcom/opensource/synx-kernel:{}_modules".format(tv),
-            "//vendor/qcom/sm8750-modules/qcom/opensource/securemsm-kernel:smcinvoke_kernel_headers",
-            "//vendor/qcom/sm8750-modules/qcom/opensource/securemsm-kernel:smmu_proxy_headers",
-            "//vendor/qcom/sm8750-modules/qcom/opensource/securemsm-kernel:{}_smcinvoke_dlkm".format(tv),
-            "//vendor/qcom/sm8750-modules/qcom/opensource/securemsm-kernel:{}_smmu_proxy_dlkm".format(tv),
-            "//vendor/qcom/sm8750-modules/qcom/opensource/mmrm-driver:{}_mmrm_driver".format(tv),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/synx-kernel:synx_headers",
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/synx-kernel:{}_modules".format(tv),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/securemsm-kernel:smcinvoke_kernel_headers",
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/securemsm-kernel:smmu_proxy_headers",
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/securemsm-kernel:{}_smcinvoke_dlkm".format(tv),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/securemsm-kernel:{}_smmu_proxy_dlkm".format(tv),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/mmrm-driver:{}_mmrm_driver".format(tv),
         ])
     if target == "sun":
         deps.extend([
-            "//vendor/qcom/sm8750-modules/qcom/opensource/synx-kernel:synx_headers",
-            "//vendor/qcom/sm8750-modules/qcom/opensource/synx-kernel:{}_modules".format(tv),
-            "//vendor/qcom/sm8750-modules/qcom/opensource/securemsm-kernel:smcinvoke_kernel_headers",
-            "//vendor/qcom/sm8750-modules/qcom/opensource/securemsm-kernel:smmu_proxy_headers",
-            "//vendor/qcom/sm8750-modules/qcom/opensource/securemsm-kernel:{}_smcinvoke_dlkm".format(tv),
-            "//vendor/qcom/sm8750-modules/qcom/opensource/securemsm-kernel:{}_smmu_proxy_dlkm".format(tv),
-            "//vendor/qcom/sm8750-modules/qcom/opensource/mmrm-driver:{}_mmrm_driver".format(tv),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/synx-kernel:synx_headers",
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/synx-kernel:{}_modules".format(tv),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/securemsm-kernel:smcinvoke_kernel_headers",
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/securemsm-kernel:smmu_proxy_headers",
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/securemsm-kernel:{}_smcinvoke_dlkm".format(tv),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/securemsm-kernel:{}_smmu_proxy_dlkm".format(tv),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/mmrm-driver:{}_mmrm_driver".format(tv),
         ])
     ddk_module(
         name = "{}_camera".format(tv),
@@ -248,7 +248,7 @@ def _define_module(target, variant):
         deps = deps,
         kconfig = "Kconfig",
         defconfig = "{}_defconfig_generated".format(tv),
-        kernel_build = "//vendor/qcom/kernel:{}".format(tv),
+        kernel_build = "//vendor/retroidpocket/kernel:{}".format(tv),
     )
 
     copy_to_dist_dir(

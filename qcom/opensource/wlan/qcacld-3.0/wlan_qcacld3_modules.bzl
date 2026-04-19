@@ -2306,10 +2306,10 @@ def _define_module_for_target_variant_chipset(target, variant, chipset):
     chipset_ipaths = _chipset_header_map[chipset]
     hw_ipaths = _hw_header_map[hw]
 
-    deps = ["//vendor/qcom/kernel:all_headers"],
+    deps = ["//vendor/retroidpocket/kernel:all_headers"],
     })
 
-    kernel_build = "//vendor/qcom/kernel:{}".format(tv),
+    kernel_build = "//vendor/retroidpocket/kernel:{}".format(tv),
 
     ipaths = chipset_ipaths + hw_ipaths + _fixed_ipaths
 
@@ -2428,24 +2428,24 @@ def _define_module_for_target_variant_chipset(target, variant, chipset):
 
     if chipset == "qca6750" or chipset == "wcn7750" or chipset == "wcn6450":
         deps += [
-            "//vendor/qcom/sm8750-modules/qcom/opensource/wlan/platform:{}_icnss2".format(tv),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/wlan/platform:{}_icnss2".format(tv),
         ]
     else:
         deps += [
-            "//vendor/qcom/sm8750-modules/qcom/opensource/wlan/platform:{}_cnss2".format(tv),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/wlan/platform:{}_cnss2".format(tv),
         ]
 
     deps = deps + [
-        "//vendor/qcom/sm8750-modules/qcom/opensource/wlan/platform:{}_cnss_prealloc".format(tv),
-        "//vendor/qcom/sm8750-modules/qcom/opensource/wlan/platform:{}_cnss_utils".format(tv),
-        "//vendor/qcom/sm8750-modules/qcom/opensource/wlan/platform:{}_cnss_nl".format(tv),
-        "//vendor/qcom/sm8750-modules/qcom/opensource/wlan/platform:wlan-platform-headers",
+        "//vendor/retroidpocket/q7790-modules/qcom/opensource/wlan/platform:{}_cnss_prealloc".format(tv),
+        "//vendor/retroidpocket/q7790-modules/qcom/opensource/wlan/platform:{}_cnss_utils".format(tv),
+        "//vendor/retroidpocket/q7790-modules/qcom/opensource/wlan/platform:{}_cnss_nl".format(tv),
+        "//vendor/retroidpocket/q7790-modules/qcom/opensource/wlan/platform:wlan-platform-headers",
     ]
 
     if target != "x1e80100" and target != "anorak" and target != "neo-la":
         deps = deps + [
-            "//vendor/qcom/sm8750-modules/qcom/opensource/dataipa:include_headers",
-            "//vendor/qcom/sm8750-modules/qcom/opensource/dataipa:{}_{}_ipam".format(target, variant),
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/dataipa:include_headers",
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/dataipa:{}_{}_ipam".format(target, variant),
         ]
 
     print("name=", name)

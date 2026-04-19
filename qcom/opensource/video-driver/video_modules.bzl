@@ -60,9 +60,9 @@ module_entry(
         ],
     },
     deps = [
-            "//vendor/qcom/sm8750-modules/qcom/opensource/mm-drivers:mm_drivers_headers",
-            "//vendor/qcom/sm8750-modules/qcom/opensource/synx-kernel:synx_headers",
-            "//vendor/qcom/sm8750-modules/qcom/opensource/mmrm-driver:%b_mmrm_driver",
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/mm-drivers:mm_drivers_headers",
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/synx-kernel:synx_headers",
+            "//vendor/retroidpocket/q7790-modules/qcom/opensource/mmrm-driver:%b_mmrm_driver",
         ],
 )
 

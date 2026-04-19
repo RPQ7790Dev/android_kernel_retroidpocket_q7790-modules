@@ -13,13 +13,13 @@ def define_modules(target, variant):
     ddk_module(
         name = rule_base,
         out = "qbt_handler.ko",
-        deps = ["//vendor/qcom/kernel:all_headers"],
+        deps = ["//vendor/retroidpocket/kernel:all_headers"],
         srcs = [
             "qbt_handler.c",
             "qbt_handler.h"
         ],
         includes = ["include/linux"],
-        kernel_build = "//vendor/qcom/kernel:{}".format(tv),
+        kernel_build = "//vendor/retroidpocket/kernel:{}".format(tv),
         visibility = ["//visibility:public"]
     )
 
